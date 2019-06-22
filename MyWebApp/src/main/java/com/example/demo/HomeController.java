@@ -5,17 +5,18 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class HomeController {
 @RequestMapping("home")	
 
-public String home(HttpServletRequest req) {
-	HttpSession session =req.getSession();
-	String name=req.getParameter("name");
-	System.out.println("Hi Everyone :) -"+name);
-	session.setAttribute("name", name);
+public String home(String Myname,HttpSession session) {
+	//HttpSession session =req.getSession();
+//	String name=req.getParameter("name");
+	System.out.println("Hi Everyone :) -"+Myname);
+	session.setAttribute("name", Myname);
 	return "home";
 }
 }

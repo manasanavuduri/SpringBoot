@@ -7,16 +7,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomeController {
 @RequestMapping("home")	
 
-public String home(String Myname,HttpSession session) {
+public ModelAndView home(@RequestParam("name") String Myname){
 	//HttpSession session =req.getSession();
 //	String name=req.getParameter("name");
-	System.out.println("Hi Everyone :) -"+Myname);
-	session.setAttribute("name", Myname);
-	return "home";
+	ModelAndView mv=new ModelAndView();
+	mv.addObject("name", Myname);
+	mv.setViewName("home");
+//	System.out.println("Hi Everyone :) -"+Myname);
+	//session.setAttribute("name", Myname);
+	return mv;
 }
 }

@@ -1,1 +1,1 @@
-insert into alien values(101,'Manasa');
+insert into alien values(101,'Maani');

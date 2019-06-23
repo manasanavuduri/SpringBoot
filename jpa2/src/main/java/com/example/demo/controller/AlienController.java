@@ -25,6 +25,12 @@ public String addAlien(Alien alien) {
 		repo.save(alien);
 	return "home.jsp";
       }
+	@RequestMapping("/aliens")
+	@ResponseBody
+	public String getAliens()
+	{
+		return repo.findAll().toString();
+	}
 	
 	@RequestMapping("/alien/{aid}")
 	@ResponseBody
